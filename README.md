@@ -1,6 +1,8 @@
 # Phone
-modified esx_phone script for my needs
+Modified esx_phone script for my needs
 
+All Notifications and the whole script is translated to POLISH, I will not provide any other translation but feel free to commit.
+I can on request add an english one :)
 
 Original Script:
 
