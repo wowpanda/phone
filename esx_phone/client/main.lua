@@ -279,11 +279,16 @@ Citizen.CreateThread(function()
 			DisableControlAction(0, 16,   true) -- Select Next Weapon
 			DisableControlAction(0, 17,   true) -- Select Prev Weapon
 		else
-			-- open phone
-			-- todo: is player busy (handcuffed, etc)
 			if IsControlJustReleased(0, Keys['F1']) then
-				if not ESX.UI.Menu.IsOpen('phone', GetCurrentResourceName(), 'main') then
-					TriggerServerEvent('esx_phone:tryOpenPhone')
+				if Config.BuyPhone then
+					if not ESX.UI.Menu.IsOpen('phone', GetCurrentResourceName(), 'main') then
+						TriggerServerEvent('esx_phone:tryOpenPhone')
+					end
+				else
+					if not ESX.UI.Menu.IsOpen('phone', GetCurrentResourceName(), 'main') then
+						ESX.UI.Menu.CloseAll()
+						ESX.UI.Menu.Open('phone', GetCurrentResourceName(), 'main')
+					end
 				end
 			end
 		end
